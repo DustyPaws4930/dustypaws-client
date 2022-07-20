@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import leftCorner from "../project-files/left_corner_login.svg";
 import rightCorner from "../project-files/right_corner_login.svg";
+import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SignUp = () => {
   const [user, setUser] = useState({
@@ -16,6 +18,9 @@ const SignUp = () => {
     password: "",
     isNgo: false,
   });
+
+  const [showPassword, setShowPassword] = useState(false);
+
   const HandleInputChange = (e) => {
     let name = e.target.name;
     let value = e.target.value;
@@ -68,6 +73,11 @@ const SignUp = () => {
       });
   };
 
+  const HandleShowPassword = (e) => {
+    e.preventDefault();
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="sign-up user">
       <Header />
@@ -87,6 +97,7 @@ const SignUp = () => {
                 name="username"
                 value={user.username}
                 id="username"
+                autoComplete="off"
                 required
                 onChange={(event) => HandleInputChange(event)}
                 placeholder="User name"
@@ -99,6 +110,7 @@ const SignUp = () => {
                 name="email"
                 value={user.email}
                 id="email"
+                autoComplete="off"
                 required
                 placeholder="Email"
                 onChange={(event) => HandleInputChange(event)}
@@ -107,15 +119,25 @@ const SignUp = () => {
 
             <div className="labelInputWrapper">
               <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                required
-                value={user.password}
-                placeholder="Password"
-                onChange={(event) => HandleInputChange(event)}
-              />
+              <div className="inputPasswordIconWrapper">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  id="password"
+                  required
+                  autoComplete="off"
+                  value={user.password}
+                  placeholder="Password"
+                  onChange={(event) => HandleInputChange(event)}
+                />
+                <FontAwesomeIcon
+                  onClick={(e) => {
+                    HandleShowPassword(e);
+                  }}
+                  className="passwordIcon"
+                  icon={faEyeSlash}
+                />
+              </div>
             </div>
             <div className="SubmitBtnWrapper">
               <button>Sign Up</button>

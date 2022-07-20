@@ -28,14 +28,12 @@ const Pagination = (props) => {
 
   // Loading data
   useEffect(() => {
-    console.log(props.initialText);
     setInitialText(props.initialText);
     axios.get(apiUrl).then((result) => {
       setData(result.data);
       if (pageName === "NGO-Home") {
         setData(result.data.complaints);
       }
-      console.log(result.data.complaints);
     });
   }, [apiUrl, setData, setInitialText]);
   // Handle page click
@@ -69,8 +67,8 @@ const Pagination = (props) => {
     currentPageData = data
     .sort((a,b)=>a.reportDate.getTime()-b.reportDate.getTime())
       .slice(offset, offset + PerPage)
-
       .map((result, index) => {
+        console.log(result.reportDate);
         return (
           <NGORequestCard
             result={result}
