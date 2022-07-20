@@ -1,0 +1,47 @@
+/* comman css to be added here */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #285b53;
+  --secondary-color: #deb141;
+  --red-color: #e04444;
+  --primary-button: var(--primary-color);
+  --secondary-button: var(--secondary-color);
+  --primary-button-faded : rgba(40, 91, 83,0.95);
+  --disabled-button: #a8a7a4;
+  --quicksand: "Quicksand";
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: var(--quicksand);
+  
+}
+img {
+  width: 100%;
+  height: auto;
+}
+button,
+input[type="submit"],
+input[type="reset"] {
+  /* background: none; */
+  color: inherit;
+  border: none;
+  /* padding: 0; */
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+input {
+  outline: none;
+}
+html {
+  scroll-behavior: smooth;
+}
