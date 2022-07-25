@@ -25,14 +25,24 @@ div.NGO-Home .map-container {
 
 .cardsContainer .cardWrapper {
   display: grid;
-  grid-template-columns: max-content max-content 2fr 3fr max-content;
+  /* grid-template-columns: max-content max-content 2fr 3fr max-content; */
+  grid-template-columns: 15% 15% 15% 35% 20%;
   align-items: flex-start;
   justify-items: start;
   margin: 2rem 0rem;
   border: 2px solid var(--primary-color);
   border-radius: 6px;
 }
-
+.cardWrapper p{
+  display: -webkit-box;
+  overflow: hidden;
+  overflow-wrap: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  height: 60px;
+}
 .reportTitleTimeWrapper {
   display: flex;
   flex-direction: column;
@@ -44,7 +54,7 @@ div.NGO-Home .map-container {
 }
 
 .cardsContainer .cardWrapper > * {
-  margin: 1rem;
+  margin: 1rem auto;
 }
 
 /* .cardsContainer .cardWrapper */
